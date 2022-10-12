@@ -12,6 +12,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
+  if (!(date instanceof Date)) return 'Unable to determine the time of year!';
+
   const month = date.getMonth();
   const seasonsList = [
     {winter: [0, 1, 11]},
