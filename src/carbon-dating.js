@@ -20,6 +20,10 @@ const HALF_LIFE_PERIOD = 5730;
 function dateSample(sampleActivity ) {
   if (typeof sampleActivity !== 'string') return false;
 
+  sampleActivityNum = +sampleActivity;
+
+  if (typeof sampleActivityNum === 'undefined' || isNaN(sampleActivityNum) || sampleActivityNum === 0) return false;
+
 }
 
 module.exports = {
