@@ -19,16 +19,13 @@ if (! Array.isArray(members)) return false;
   let dreamTeam = '';
   let membersNoSpace = [];
   members.forEach((item) => {
-      if (typeof item === 'string') membersNoSpace.push(item.trim());
+      if (typeof item === 'string') membersNoSpace.push(item.trim().toUpperCase());
   })
 
   membersNoSpace.sort();
-  membersNoSpace.forEach( (item) => {
-    const trimName = item.trim();
-    dreamTeam += trimName[0];
-  });
+  membersNoSpace.forEach( (item) => dreamTeam += item[0]);
 
-  return dreamTeam.toUpperCase();
+  return dreamTeam;
 }
 
 module.exports = {
