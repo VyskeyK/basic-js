@@ -29,9 +29,11 @@ function dateSample(sampleActivity ) {
 
   let result = 0;
 
-  result = Math.log( MODERN_ACTIVITY / sampleActivityNum) / k;
+  result = Math.floor(Math.log( MODERN_ACTIVITY / sampleActivityNum) / k);
 
-  return Math.floor(result);
+  if (Math.abs(result) === Infinity || isNaN(result) ||  result < 0) return false;
+
+  return result;
 }
 
 module.exports = {
