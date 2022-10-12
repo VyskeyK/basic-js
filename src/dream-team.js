@@ -14,6 +14,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(members) {
+if (! Array.isArray(members)) return false;
+
   let dreamTeam = '';
   let membersNoSpace = members.map((item) => {
     return item.trim();
