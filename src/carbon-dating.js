@@ -24,6 +24,14 @@ function dateSample(sampleActivity ) {
 
   if (typeof sampleActivityNum === 'undefined' || isNaN(sampleActivityNum) || sampleActivityNum === 0) return false;
 
+  const lnTwo = 0.693;
+  const k = lnTwo / HALF_LIFE_PERIOD;
+
+  let result = 0;
+
+  result = Math.log( MODERN_ACTIVITY / sampleActivityNum) / k;
+
+  return Math.floor(result);
 }
 
 module.exports = {
