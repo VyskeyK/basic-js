@@ -17,8 +17,9 @@ function createDreamTeam(members) {
 if (! Array.isArray(members)) return false;
 
   let dreamTeam = '';
-  let membersNoSpace = members.map((item) => {
-    return item.trim();
+  let membersNoSpace = [];
+  members.forEach((item) => {
+      if (typeof item === 'string') membersNoSpace.push(item.trim());
   })
 
   membersNoSpace.sort();
