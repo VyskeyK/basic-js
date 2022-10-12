@@ -16,7 +16,7 @@ function getSeason(date) {
   if (!(date instanceof Date)) throw new Error('Invalid date!');
   
   try {
-    date.getDate()
+    date.getYear()
   } catch {
     throw new Error('Invalid date!');
   }
