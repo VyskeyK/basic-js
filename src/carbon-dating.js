@@ -29,7 +29,7 @@ function dateSample(sampleActivity ) {
 
   let result = 0;
 
-  result = Math.floor(Math.log( MODERN_ACTIVITY / sampleActivityNum) / k);
+  result = Math.ceil(Math.log( MODERN_ACTIVITY / sampleActivityNum) / k);
 
   if (Math.abs(result) === Infinity || isNaN(result) ||  result < 0) return false;
 
