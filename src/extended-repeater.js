@@ -17,14 +17,16 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function repeater(str, options) {
   const repeatTimes = 'repeatTimes';
-  
+  const separator = 'separator';
+
+  const separatorStr = options[separator] === undefined ? '+' : options[separator];
   let repeatedStr = '';
   
   for (let i = 0; i < options[repeatTimes]; i++) {
     if ( (i + 1) === options[repeatTimes]) {
       repeatedStr += str;
     } else {
-      repeatedStr += str + '+';
+      repeatedStr += str + separatorStr;
     }
   }
   
