@@ -13,9 +13,34 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-function transform(/* arr */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function transform(arr) {
+  const discardNextControl = '--discard-next';
+  const discardPrevControl = '--discard-prev';
+  const doubleNextControl = '--double-next';
+  const doublePrevControl = '--double-prev';
+  const controls = [discardNextControl, discardPrevControl, doubleNextControl, doublePrevControl];
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (controls.includes(arr[i])) {
+      if (arr[i] === discardNextControl) {
+        arr[i] = undefined;
+        arr[i + 1] = undefined;
+      }
+      if (arr[i] === discardPrevControl) {
+        arr[i] = undefined;
+        arr[i - 1] = undefined;
+      }
+      if (arr[i] === doubleNextControl) {
+        arr[i] = arr[i + 1];
+      }
+      if (arr[i] === doublePrevControl) {
+        arr[i] = arr[i - 1];
+      }
+    }
+  }
+  
+  
+  return arr.filter( (item) => item !== undefined);
 }
 
 module.exports = {
