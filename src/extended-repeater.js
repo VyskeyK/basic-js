@@ -18,15 +18,20 @@ const { NotImplementedError } = require('../extensions/index.js');
 function repeater(str, options) {
   const repeatTimes = 'repeatTimes';
   const separator = 'separator';
+  const addition = 'addition';
+  const additionRepeatTimes = options['additionRepeatTimes'];
 
   const separatorStr = options[separator] === undefined ? '+' : options[separator];
+  let additionStr = options[addition] === undefined ? '' : options[addition];
   let repeatedStr = '';
+
+  if (additionRepeatTimes !== undefined) additionStr.repeat(additionRepeatTimes)
   
   for (let i = 0; i < options[repeatTimes]; i++) {
     if ( (i + 1) === options[repeatTimes]) {
-      repeatedStr += str;
+      repeatedStr += str + additionStr;
     } else {
-      repeatedStr += str + separatorStr;
+      repeatedStr += str + additionStr + separatorStr;
     }
   }
   
