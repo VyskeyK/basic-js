@@ -21,14 +21,17 @@ function repeater(str, options) {
   const addition = 'addition';
   const additionRepeatTimes = options['additionRepeatTimes'];
 
+  const repeatTimesNum = options[repeatTimes] === undefined ? 1 : options[repeatTimes];
   const separatorStr = options[separator] === undefined ? '+' : options[separator];
   let additionStr = options[addition] === undefined ? '' : options[addition];
   let repeatedStr = '';
 
-  if (additionRepeatTimes !== undefined) additionStr.repeat(additionRepeatTimes)
+  if (additionRepeatTimes !== undefined) additionStr.repeat(additionRepeatTimes);
+
+  if (repeatTimesNum === 1) return str + additionStr;
   
-  for (let i = 0; i < options[repeatTimes]; i++) {
-    if ( (i + 1) === options[repeatTimes]) {
+  for (let i = 0; i < repeatTimesNum; i++) {
+    if ( (i + 1) === repeatTimesNum) {
       repeatedStr += str + additionStr;
     } else {
       repeatedStr += str + additionStr + separatorStr;
