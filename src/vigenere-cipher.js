@@ -24,6 +24,8 @@ class VigenereCipheringMachine {
     this.direct = direct;
   }
   encrypt(message, key) {
+    if (message === undefined || key === undefined) throw new Error('Incorrect arguments!');
+
     console.log(message.length);
     console.log(key.length);
     const messageArr = message.toLowerCase().split('')
@@ -34,7 +36,7 @@ class VigenereCipheringMachine {
     
     let keyToInsert = 0;
     let keyToAlphabet = [];
-    
+
     for (let i = 0; i < messageToAlphabet.length; i ++) {
       if (messageToAlphabet[i] <=0) {
         keyToAlphabet.splice(i, 0, messageToAlphabet[i]);
@@ -59,6 +61,8 @@ class VigenereCipheringMachine {
     return encryptMessage.join('');
   }
   decrypt(message, key) {
+    if (message === undefined || key === undefined) throw new Error('Incorrect arguments!');
+    
     const messageArr = message.toLowerCase().split('')
     const messageToAlphabet = messageArr.map(letter => letter.charCodeAt(0) - 96);
     const keyArr = key.toLowerCase().split('');
