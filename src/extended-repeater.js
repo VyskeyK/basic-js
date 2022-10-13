@@ -25,7 +25,7 @@ function repeater(str, options) {
   let repeatedStr = '';
   const repeatTimesNum = options[repeatTimes] === undefined ? 1 : options[repeatTimes];
   const separatorStr = options[separator] === undefined ? '+' : options[separator];
-  const additionSeparatorStr = options[additionSeparator] === undefined ? '' : options[additionSeparator];
+  const additionSeparatorStr = options[additionSeparator] === undefined ? '|' : options[additionSeparator];
   const additionRepeatTimesNum = options[additionRepeatTimes] === undefined ? 1 : options[additionRepeatTimes];
   let additionStr = options[addition] === undefined ? '' : options[addition];
   let fullAdditionStr = '';
