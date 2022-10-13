@@ -19,6 +19,8 @@ function transform(arr) {
   const doubleNextControl = '--double-next';
   const doublePrevControl = '--double-prev';
   const controls = [discardNextControl, discardPrevControl, doubleNextControl, doublePrevControl];
+
+  if (!(arr instanceof Array)) throw new Error("\'arr\' parameter must be an instance of the Array!");
   
   for (let i = 0; i < arr.length; i++) {
     if (controls.includes(arr[i])) {
