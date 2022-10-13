@@ -21,28 +21,30 @@ function transform(arr) {
   const controls = [discardNextControl, discardPrevControl, doubleNextControl, doublePrevControl];
 
   if (!(arr instanceof Array)) throw new Error("\'arr\' parameter must be an instance of the Array!");
+
+  let result = [...arr];
   
-  for (let i = 0; i < arr.length; i++) {
-    if (controls.includes(arr[i])) {
-      if (arr[i] === discardNextControl) {
-        arr[i] = undefined;
-        arr[i + 1] = undefined;
+  for (let i = 0; i < result.length; i++) {
+    if (controls.includes(result[i])) {
+      if (result[i] === discardNextControl) {
+        result[i] = undefined;
+        result[i + 1] = undefined;
       }
-      if (arr[i] === discardPrevControl) {
-        arr[i] = undefined;
-        arr[i - 1] = undefined;
+      if (result[i] === discardPrevControl) {
+        result[i] = undefined;
+        result[i - 1] = undefined;
       }
-      if (arr[i] === doubleNextControl) {
-        arr[i] = arr[i + 1];
+      if (result[i] === doubleNextControl) {
+        result[i] = result[i + 1];
       }
-      if (arr[i] === doublePrevControl) {
-        arr[i] = arr[i - 1];
+      if (result[i] === doublePrevControl) {
+        result[i] = result[i - 1];
       }
     }
   }
   
   
-  return arr.filter( (item) => item !== undefined);
+  return result.filter( (item) => item !== undefined);
 }
 
 module.exports = {
