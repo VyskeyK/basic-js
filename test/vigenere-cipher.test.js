@@ -76,10 +76,7 @@ describe('Vigenere cipher', () => {
         const testStr = createTestString(i);
         const testKey = createTestKey(i + i % 2);
         const encrypted = directMachine.encrypt(testStr, testKey);
-        const decrypted = directMachine.decrypt(encrypted, testKey);
-        assert.equal(directMachine.decrypt(encrypted, testKey), testKey);
-        if (decrypted !== testStr) 
-          throw new Error(`testStr = ${testStr}; testKey = ${testKey}; encrypted = ${encrypted}; decrypted = ${decrypted}`);
+        assert.equal(directMachine.decrypt(encrypted, testKey), testStr);
       }
     });
 
